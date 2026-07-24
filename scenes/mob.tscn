@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bshlavlyuwkc3"]
+
+[ext_resource type="Script" uid="uid://b7apu38axsvai" path="res://scripts/mob.gd" id="1_nokgg"]
+[ext_resource type="Texture2D" uid="uid://bngwwigltb4ij" path="res://sprites/mob.png" id="2_ubaqv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fc0e3"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f8ras"]
+radius = 6.0
+
+[node name="Mob" type="RigidBody2D" unique_id=421709016]
+collision_layer = 4
+collision_mask = 13
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_nokgg")
+metadata/_custom_type_script = "uid://b7apu38axsvai"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=901294275]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(1, 0)
+texture = ExtResource("2_ubaqv")
+
+[node name="Shape" type="CollisionShape2D" parent="." unique_id=1243591907]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_fc0e3")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2015755706]
+collision_layer = 16
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1269118510]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_f8ras")

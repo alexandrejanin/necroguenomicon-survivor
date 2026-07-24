@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://d38x1cg7fju2"]
+
+[ext_resource type="PackedScene" uid="uid://bsstyhhgxe358" path="res://scenes/spells/fireball.tscn" id="1_es81u"]
+[ext_resource type="Script" uid="uid://bdycgjomh2m88" path="res://scripts/spell.gd" id="1_kdtli"]
+
+[resource]
+script = ExtResource("1_kdtli")
+cooldown = 3.0
+projectile = ExtResource("1_es81u")
+metadata/_custom_type_script = "uid://bdycgjomh2m88"
