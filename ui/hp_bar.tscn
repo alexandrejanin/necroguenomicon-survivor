@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://1v5en64hciny"]
+
+[ext_resource type="Texture2D" uid="uid://ho001ytn0ft1" path="res://sprites/heart.png" id="1_e8frx"]
+[ext_resource type="Script" uid="uid://ccxcf16l2fl0j" path="res://ui/hp_bar.gd" id="2_l6ww1"]
+
+[node name="HpBar" type="TextureRect" unique_id=1809105480]
+texture_filter = 1
+offset_right = 48.0
+offset_bottom = 16.0
+scale = Vector2(4, 4)
+texture = ExtResource("1_e8frx")
+stretch_mode = 1
+script = ExtResource("2_l6ww1")
+metadata/_custom_type_script = "uid://ccxcf16l2fl0j"

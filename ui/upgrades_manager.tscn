@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c8rffi0lu10r0"]
+
+[ext_resource type="Script" uid="uid://d32v42mj6youv" path="res://ui/upgrades_manager.gd" id="1_ol351"]
+
+[node name="UpgradesManager" type="Control" unique_id=1917442227]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ol351")
+metadata/_custom_type_script = "uid://d32v42mj6youv"
+
+[node name="Options" type="HBoxContainer" parent="." unique_id=1946556340]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -50.0
+offset_right = 102.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="XpBar" type="ColorRect" parent="." unique_id=307466703]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 1, 0.2, 1)

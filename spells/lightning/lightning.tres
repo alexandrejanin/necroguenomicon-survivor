@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://bgcc4iincerat"]
+
+[ext_resource type="Script" uid="uid://bdycgjomh2m88" path="res://spells/spell.gd" id="1_cgt22"]
+[ext_resource type="Texture2D" uid="uid://dsudx4pa4n33v" path="res://sprites/lightning.png" id="1_ogv0y"]
+[ext_resource type="PackedScene" uid="uid://cgl054vwnocip" path="res://spells/lightning/lightning.tscn" id="2_leb5k"]
+
+[resource]
+script = ExtResource("1_cgt22")
+name = "Lightning"
+icon = ExtResource("1_ogv0y")
+cooldown = 1.0
+projectile = ExtResource("2_leb5k")
+metadata/_custom_type_script = "uid://bdycgjomh2m88"

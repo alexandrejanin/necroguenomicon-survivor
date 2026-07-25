@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://v2yajp85xqp2"]
+
+[ext_resource type="PackedScene" uid="uid://c8rffi0lu10r0" path="res://ui/upgrades_manager.tscn" id="1_aac20"]
+[ext_resource type="PackedScene" uid="uid://1v5en64hciny" path="res://ui/hp_bar.tscn" id="1_nt7q6"]
+[ext_resource type="Script" uid="uid://dbgcob1ttcbhu" path="res://ui/defeat_screen.gd" id="2_f5cxw"]
+
+[node name="Ui" type="CanvasLayer" unique_id=1649468986]
+process_mode = 3
+
+[node name="UpgradesManager" parent="." unique_id=1917442227 instance=ExtResource("1_aac20")]
+
+[node name="HpBar" parent="." unique_id=2080110471 instance=ExtResource("1_nt7q6")]
+
+[node name="DefeatScreen" type="Label" parent="." unique_id=1697578108]
+offset_right = 161.0
+offset_bottom = 23.0
+text = "Press 'R' to try again!"
+script = ExtResource("2_f5cxw")
+metadata/_custom_type_script = "uid://dbgcob1ttcbhu"
