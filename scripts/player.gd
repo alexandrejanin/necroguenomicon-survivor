@@ -6,12 +6,13 @@ extends CharacterBody2D
 @export var MAX_HP := 3
 @export var INVINCIBILITY_DURATION := 3.0
 
-@onready var hp := MAX_HP
-@onready var xp := 0
-@onready var sprite := $Sprite
-@onready var spells: Array[Spell] = [preload("res://spells/fireball.tres")]
-
+var hp := MAX_HP
+var level := 0
+var xp := 0
 var invincibility_timer := INVINCIBILITY_DURATION
+var spells: Array[Spell] = []
+
+@onready var sprite := $Sprite
 
 func _process(delta: float) -> void:
 	invincibility_timer += delta

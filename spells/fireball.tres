@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_kdtli")
+name = "Fireball"
 cooldown = 3.0
 projectile = ExtResource("1_es81u")
 metadata/_custom_type_script = "uid://bdycgjomh2m88"

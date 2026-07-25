@@ -7,6 +7,7 @@
 texture_filter = 1
 offset_right = 48.0
 offset_bottom = 16.0
+scale = Vector2(4, 4)
 texture = ExtResource("1_e8frx")
 stretch_mode = 1
 script = ExtResource("2_l6ww1")

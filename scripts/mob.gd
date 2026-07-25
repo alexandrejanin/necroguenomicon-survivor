@@ -6,11 +6,13 @@ extends RigidBody2D
 @onready var player: Player = $/root/Game/Player
 @onready var sprite := $Sprite
 @onready var hitbox := $Hitbox
+@onready var hurtbox := $Hurtbox
 
 var xp_res := preload("res://scenes/xp.tscn")
 
 func _ready() -> void:
 	hitbox.body_entered.connect(on_hit)
+	hurtbox.body_entered.connect(on_hurt)
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	if player == null:
@@ -27,3 +29,7 @@ func _exit_tree() -> void:
 func on_hit(other: Node):
 	if other == player:
 		player.take_damage()
+
+func on_hurt(other: Node):
+	if other is Projectile:
+		(other as Projectile).on_hit(self)

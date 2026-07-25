@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://b7t4mpw5kosqs"]
+
+[ext_resource type="PackedScene" uid="uid://ctk8eq0kg6vu3" path="res://scenes/spells/dagger.tscn" id="1_6om08"]
+[ext_resource type="Script" uid="uid://bdycgjomh2m88" path="res://scripts/spell.gd" id="2_v55yq"]
+
+[resource]
+script = ExtResource("2_v55yq")
+name = "Dagger"
+cooldown = 0.5
+projectile = ExtResource("1_6om08")
+metadata/_custom_type_script = "uid://bdycgjomh2m88"
