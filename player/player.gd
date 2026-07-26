@@ -51,6 +51,10 @@ func _physics_process(_delta: float) -> void:
 		sprite.flip_h = true
 	elif velocity.x > 0:
 		sprite.flip_h = false
+		
+
+func xp_threshold() -> int:
+	return 10 * level
 
 func take_damage(damage: int = 1):
 	if hp <= 0 || invincibility_timer < INVINCIBILITY_DURATION:

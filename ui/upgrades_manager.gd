@@ -11,23 +11,17 @@ var option_resource := preload("res://ui/upgrade_option.tscn")
 
 @onready var player: Player = $/root/Game/Player
 @onready var options_parent: Control = $Options
-@onready var xp_bar: Control = $XpBar
 
 func _process(_delta: float) -> void:
 	if player == null:
 		print_debug("player == null")
 		return
 	
-	xp_bar.scale.x = float(player.xp) / max(xp_threshold(player.level), 1.0)
-	
-	if player.xp >= xp_threshold(player.level):
-		player.xp -= xp_threshold(player.level)
+	if player.xp >= player.xp_threshold():
+		player.xp -= player.xp_threshold()
 		player.level += 1
 		show_upgrades_menu()
 
-func xp_threshold(level: int) -> int:
-	return 10 * level
-	
 func show_upgrades_menu() -> void:
 	get_tree().paused = true
 	
