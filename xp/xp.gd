@@ -28,4 +28,5 @@ func _process(delta: float) -> void:
 		
 		if t >= 1:
 			player.xp += 1
+			$/root/Game/RunManager.total_xp += 1
 			queue_free()

@@ -37,6 +37,7 @@ func _exit_tree() -> void:
 	var xp: Node2D = xp_res.instantiate()
 	xp.global_position = global_position
 	$/root/Game.add_child.call_deferred(xp)
+	$/root/Game/RunManager.total_kills += 1
 
 func on_hit(other: Node):
 	if other == player:

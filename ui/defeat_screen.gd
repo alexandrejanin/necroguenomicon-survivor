@@ -7,5 +7,7 @@ var player: Player = $/root/Game/Player
 func _process(_delta: float) -> void:
 	visible = player.hp <= 0
 	
-	if visible && Input.is_key_pressed(KEY_R):
-		get_tree().reload_current_scene()
+	if visible:
+		text = "%s\nPress 'R' to try again!" % $/root/Game/RunManager.get_text()
+		if Input.is_key_pressed(KEY_R):
+			get_tree().reload_current_scene()
