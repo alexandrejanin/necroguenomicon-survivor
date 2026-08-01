@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 @export var SPEED := 30.0
-@export var PICKUP_RANGE := 20.0
+@export var PICKUP_RANGE := 27.0
 @export var MAX_HP := 3
 @export var INVINCIBILITY_DURATION := 3.0
 
@@ -31,19 +31,9 @@ func _physics_process(_delta: float) -> void:
 	if hp <= 0:
 		return
 	
-	var x_direction := Input.get_axis("ui_left", "ui_right")
-	if x_direction:
-		velocity.x = x_direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-	var y_direction := Input.get_axis("ui_up", "ui_down")
-	if y_direction:
-		velocity.y = y_direction * SPEED
-	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
-	velocity.limit_length(SPEED)
+	velocity = SPEED * direction
 	
 	move_and_slide()
 	

@@ -1,13 +1,55 @@
 [gd_resource type="Resource" script_class="Spell" format=3 uid="uid://bgcc4iincerat"]
 
+[ext_resource type="Script" uid="uid://baspo16md2iif" path="res://spells/stat.gd" id="1_1wxd4"]
 [ext_resource type="Script" uid="uid://bdycgjomh2m88" path="res://spells/spell.gd" id="1_cgt22"]
 [ext_resource type="Texture2D" uid="uid://dsudx4pa4n33v" path="res://sprites/lightning.png" id="1_ogv0y"]
 [ext_resource type="PackedScene" uid="uid://cgl054vwnocip" path="res://spells/lightning/lightning.tscn" id="2_leb5k"]
+
+[sub_resource type="Resource" id="Resource_0ltqd"]
+script = ExtResource("1_1wxd4")
+name = "Cast rate"
+base = 1.0
+per_level = 0.5
+metadata/_custom_type_script = "uid://baspo16md2iif"
+
+[sub_resource type="Resource" id="Resource_1wxd4"]
+script = ExtResource("1_1wxd4")
+name = "Bounces"
+base = 2.0
+per_level = 1.0
+metadata/_custom_type_script = "uid://baspo16md2iif"
+
+[sub_resource type="Resource" id="Resource_wmg34"]
+script = ExtResource("1_1wxd4")
+name = "Bounce range"
+base = 32.0
+per_level = 16.0
+metadata/_custom_type_script = "uid://baspo16md2iif"
+
+[sub_resource type="Resource" id="Resource_1oc1g"]
+script = ExtResource("1_1wxd4")
+name = "Damage"
+base = 40.0
+per_level = 20.0
+metadata/_custom_type_script = "uid://baspo16md2iif"
+
+[sub_resource type="Resource" id="Resource_87n01"]
+script = ExtResource("1_1wxd4")
+name = "Range"
+base = 64.0
+per_level = 32.0
+metadata/_custom_type_script = "uid://baspo16md2iif"
 
 [resource]
 script = ExtResource("1_cgt22")
 name = "Lightning"
 icon = ExtResource("1_ogv0y")
-cooldown = 1.0
 projectile = ExtResource("2_leb5k")
+FIRE_RATE = SubResource("Resource_0ltqd")
+stats = Dictionary[String, ExtResource("1_1wxd4")]({
+"BOUNCES": SubResource("Resource_1wxd4"),
+"BOUNCE_RANGE": SubResource("Resource_wmg34"),
+"DAMAGE": SubResource("Resource_1oc1g"),
+"RANGE": SubResource("Resource_87n01")
+})
 metadata/_custom_type_script = "uid://bdycgjomh2m88"

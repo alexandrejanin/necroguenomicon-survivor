@@ -28,14 +28,27 @@ func show_upgrades_menu() -> void:
 	for spell in spells:
 		var new_option: UpgradeOption = option_resource.instantiate()
 		options_parent.add_child(new_option)
-		new_option.custom_minimum_size.x = 100
-		new_option.set_spell(spell)
-		new_option.selected.connect(on_option_selected)
+		new_option.custom_minimum_size = Vector2(300, 300)
+		
+		if player.spells.has(spell):
+			new_option.set_spell_upgrade(spell, spell.get_stats().pick_random())
+		else:
+			new_option.set_spell(spell)
+		
+		new_option.spell_selected.connect(on_spell_selected)
+		new_option.upgrade_selected.connect(on_upgrade_selected)
 	
 	options_parent.visible = true
 
-func on_option_selected(spell: Spell) -> void:
+func on_spell_selected(spell: Spell) -> void:
 	player.spells.append(spell)
+	close()
+
+func on_upgrade_selected(stat: Stat) -> void:
+	stat.level += 1
+	close()
+
+func close() -> void:
 	
 	options_parent.visible = false
 	for node in options_parent.get_children():

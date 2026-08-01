@@ -3,6 +3,7 @@ class_name Projectile
 extends RigidBody2D
 
 var player: Player = null
+var spell: Spell = null
 
 @abstract
 func _on_shoot(index: int) -> bool
@@ -10,8 +11,9 @@ func _on_shoot(index: int) -> bool
 @abstract
 func on_hit(mob: Mob) -> void
 
-func on_shoot(new_player: Player, index: int) -> bool:
+func on_shoot(new_player: Player, new_spell: Spell, index: int) -> bool:
 	player = new_player
+	spell = new_spell
 	global_position = player.global_position
 	return _on_shoot(index)
 
