@@ -1,7 +1,5 @@
 [gd_resource type="Resource" script_class="Spell" format=3 uid="uid://b7t4mpw5kosqs"]
 
-[ext_resource type="PackedScene" uid="uid://ctk8eq0kg6vu3" path="res://spells/dagger/dagger.tscn" id="1_6om08"]
-[ext_resource type="Texture2D" uid="uid://cue2h5go4n5u3" path="res://sprites/dagger.png" id="1_v55yq"]
 [ext_resource type="Script" uid="uid://bdycgjomh2m88" path="res://spells/spell.gd" id="2_v55yq"]
 [ext_resource type="Script" uid="uid://baspo16md2iif" path="res://spells/stat.gd" id="4_0ltqd"]
 
@@ -12,20 +10,7 @@ base = 2.0
 per_level = 0.5
 metadata/_custom_type_script = "uid://baspo16md2iif"
 
-[sub_resource type="Resource" id="Resource_v4r5p"]
-script = ExtResource("4_0ltqd")
-name = "Damage"
-base = 100.0
-per_level = 50.0
-metadata/_custom_type_script = "uid://baspo16md2iif"
-
 [resource]
 script = ExtResource("2_v55yq")
-name = "Dagger"
-icon = ExtResource("1_v55yq")
-projectile = ExtResource("1_6om08")
 FIRE_RATE = SubResource("Resource_bxpqd")
-stats = Dictionary[String, ExtResource("4_0ltqd")]({
-"DAMAGE": SubResource("Resource_v4r5p")
-})
 metadata/_custom_type_script = "uid://bdycgjomh2m88"

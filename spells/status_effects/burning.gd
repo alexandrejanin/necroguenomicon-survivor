@@ -2,7 +2,7 @@ class_name Burning
 extends StatusEffect
 
 @export var DURATION := 5.0
-@export var DPS := 10.0
+@export var DPS Projectile:= 10.0
 
 var timer := 0.0
 var damage_counter := 0.0

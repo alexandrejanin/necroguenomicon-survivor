@@ -46,7 +46,7 @@ func on_hit(other: Node):
 func on_hurt(other: Node):
 	if other is Projectile:
 		var projectile = other as Projectile
-		projectile.on_hit(self)
+		projectile.on_hit.emit(self, projectile)
 
 func take_damage(damage: int):
 	hp -= damage
