@@ -1,0 +1,80 @@
+- Weapons : Base spells fired by the player
+	- Physical :
+		- Dagger :
+			- Damage : Low
+			- Fire rate : High
+			- Range : Infinite
+			- Automatically fires in a circular pattern
+		- Sword :
+			- Damage : Medium
+			- Fire rate : Medium
+			- Range : Short
+			- Hits the nearest enemies in an arc shape
+		- Boomerang :
+			- Damage : High
+			- Fire rate : Low
+			- Range : High
+			- Shoots at a random enemy and comes back, piercing enemies
+	- Magical :
+		- Orb :
+			- Damage : Low
+			- Fire rate : Permanent
+			- Range : Medium
+			- Constantly orbits the player, hitting enemies
+		- Beam :
+			- Damage : Medium
+			- Fire rate : Medium
+			- Range : Medium
+			- Fires a piercing beam at the nearest enemy
+		- Crystal :
+			- Damage : High
+			- Fire rate : Low
+			- Range : High
+			- Fires a crystal that pierces enemies then explodes
+	- Occult :
+		- Tentacle buddy :
+			- Damage : Low
+			- Fire rate : High
+			- Range : High
+			- Spawns next to a random enemy and hits in a rectangle shape
+		- Tentacle arm :
+			- Damage : Medium
+			- Fire rate : Medium
+			- Range : Short
+			- Hits the nearest enemy and behind it, in a rectangle shape
+		- Tentacle circle :
+			- Damage : High
+			- Fire rate : Low
+			- Range : Short
+			- Eight tentacles hit around the player
+
+
+- Effects : Additional spells which apply when another spell hits or kills a mob
+	- On-hit : 
+		- Piercing dagger :
+			- Spawns a dagger behind the enemy
+		- Flame bite :
+			- Burns the enemy
+		- Lightning chain :
+			- Hits nearest enemies in a chain with lightning
+		- Poison bite :
+			- Poisons the enemy
+		- Frost bite :
+			- Frosts the enemy
+	- On-kill :
+		- Dagger explosion :
+			- Spawns 8 daggers in a circle
+		- Fire geyser :
+			- Spawns a fire column that hits and burns enemies
+		- Lightning strike :
+			- Hits all nearby enemies with lightning
+		- Poison cloud :
+			- Poisons all nearby enemies
+		- Glacier :
+			- Frost explosion that applies frost stacks
+
+- Elemental effects :
+	- Fire : deals constant damage over time.
+	- Poison : deals damage once after a delay.
+	- Lightning : Briefly paralyzes the enemy on hit
+	- Frost : Slows the enemy. After enough stacks, freeze it completely.

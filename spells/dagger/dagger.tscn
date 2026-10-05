@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ctk8eq0kg6vu3"]
 
-[ext_resource type="Script" uid="uid://dl4j3oak4kwli" path="res://spells/dagger/dagger.gd" id="1_5ywdy"]
+[ext_resource type="Script" uid="uid://r25q313ky5qb" path="res://spells/projectile.gd" id="1_5ywdy"]
 [ext_resource type="Texture2D" uid="uid://cue2h5go4n5u3" path="res://sprites/dagger.png" id="2_5ywdy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aaf2s"]
@@ -13,7 +13,7 @@ gravity_scale = 0.0
 lock_rotation = true
 linear_damp_mode = 1
 script = ExtResource("1_5ywdy")
-metadata/_custom_type_script = "uid://dl4j3oak4kwli"
+metadata/_custom_type_script = "uid://r25q313ky5qb"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1655967554]
 shape = SubResource("RectangleShape2D_aaf2s")

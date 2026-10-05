@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bhycjfuetuicf"]
+
+[ext_resource type="Texture2D" uid="uid://byen3d68rgv27" path="res://sprites/xp.png" id="1_6x1cm"]
+[ext_resource type="Script" uid="uid://cac3qn5o05fgc" path="res://pickups/xp.gd" id="2_djqhs"]
+
+[node name="Xp" type="Sprite2D" unique_id=777509975]
+texture_filter = 1
+texture = ExtResource("1_6x1cm")
+script = ExtResource("2_djqhs")

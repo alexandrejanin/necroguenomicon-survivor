@@ -1,14 +1,19 @@
+@abstract
+class_name Pickup
 extends Sprite2D
 
 @export var ANIMATION_DURATION := 0.5
 
 @onready var player: Player = $/root/Game/Player
-var animation_curve: Curve = preload("res://xp_animation_curve.tres")
+var animation_curve: Curve = preload("res://pickups/animation_curve.tres")
 
 var animation_timer := 0.0
 var in_range := false
 
 var starting_position: Vector2
+
+@abstract
+func on_pickup() -> void
 
 func _process(delta: float) -> void:
 	if player == null:
@@ -27,6 +32,5 @@ func _process(delta: float) -> void:
 		modulate = Color(whiteness, whiteness, whiteness)
 		
 		if t >= 1:
-			player.xp += 1
-			$/root/Game/RunManager.total_xp += 1
+			on_pickup()
 			queue_free()

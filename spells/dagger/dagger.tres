@@ -1,31 +1,55 @@
 [gd_resource type="Resource" script_class="Spell" format=3 uid="uid://b7t4mpw5kosqs"]
 
-[ext_resource type="PackedScene" uid="uid://ctk8eq0kg6vu3" path="res://spells/dagger/dagger.tscn" id="1_6om08"]
-[ext_resource type="Texture2D" uid="uid://cue2h5go4n5u3" path="res://sprites/dagger.png" id="1_v55yq"]
-[ext_resource type="Script" uid="uid://bdycgjomh2m88" path="res://spells/spell.gd" id="2_v55yq"]
-[ext_resource type="Script" uid="uid://baspo16md2iif" path="res://spells/stat.gd" id="4_0ltqd"]
+[ext_resource type="Script" uid="uid://bdycgjomh2m88" path="res://spells/spell.gd" id="1"]
+[ext_resource type="Script" uid="uid://baspo16md2iif" path="res://spells/stat.gd" id="2"]
+[ext_resource type="Script" uid="uid://dch8xqgek1xxr" path="res://spells/projectile_data.gd" id="3"]
+[ext_resource type="Script" uid="uid://fb7s03hplwkj" path="res://spells/patterns/count_pattern.gd" id="4"]
+[ext_resource type="Script" uid="uid://gvvxhjdd572" path="res://spells/movements/rotating_movement.gd" id="5"]
+[ext_resource type="Script" uid="uid://cvjjt74ywt2o1" path="res://spells/effects/effect.gd" id="5_ofb0w"]
+[ext_resource type="PackedScene" uid="uid://ctk8eq0kg6vu3" path="res://spells/dagger/dagger.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://cue2h5go4n5u3" path="res://sprites/dagger.png" id="7"]
 
-[sub_resource type="Resource" id="Resource_bxpqd"]
-script = ExtResource("4_0ltqd")
+[sub_resource type="Resource" id="Resource_fire_rate"]
+script = ExtResource("2")
 name = "Cast rate"
-base = 2.0
-per_level = 0.5
-metadata/_custom_type_script = "uid://baspo16md2iif"
+base = 3.0
+per_level = 1.0
 
-[sub_resource type="Resource" id="Resource_v4r5p"]
-script = ExtResource("4_0ltqd")
+[sub_resource type="Resource" id="Resource_count"]
+script = ExtResource("2")
+name = "Count"
+base = 1.0
+per_level = 1.0
+
+[sub_resource type="Resource" id="Resource_pattern"]
+script = ExtResource("4")
+count = SubResource("Resource_count")
+
+[sub_resource type="Resource" id="Resource_damage"]
+script = ExtResource("2")
 name = "Damage"
-base = 100.0
-per_level = 50.0
-metadata/_custom_type_script = "uid://baspo16md2iif"
+base = 50.0
+per_level = 25.0
+
+[sub_resource type="Resource" id="Resource_movement"]
+script = ExtResource("5")
+
+[sub_resource type="Resource" id="Resource_pierce"]
+script = ExtResource("2")
+name = "Pierce"
+per_level = 1.0
+
+[sub_resource type="Resource" id="Resource_projectile"]
+script = ExtResource("3")
+damage = SubResource("Resource_damage")
+pierce = SubResource("Resource_pierce")
+movement = SubResource("Resource_movement")
+visual = ExtResource("6")
 
 [resource]
-script = ExtResource("2_v55yq")
+script = ExtResource("1")
 name = "Dagger"
-icon = ExtResource("1_v55yq")
-projectile = ExtResource("1_6om08")
-FIRE_RATE = SubResource("Resource_bxpqd")
-stats = Dictionary[String, ExtResource("4_0ltqd")]({
-"DAMAGE": SubResource("Resource_v4r5p")
-})
-metadata/_custom_type_script = "uid://bdycgjomh2m88"
+icon = ExtResource("7")
+FIRE_RATE = SubResource("Resource_fire_rate")
+pattern = SubResource("Resource_pattern")
+projectile = SubResource("Resource_projectile")

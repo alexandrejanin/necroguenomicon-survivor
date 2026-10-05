@@ -12,7 +12,8 @@ var status_effects: Array[StatusEffect]
 @onready var hitbox := $Hitbox
 @onready var hurtbox := $Hurtbox
 
-var xp_res := preload("res://xp/xp.tscn")
+var xp_pickup := preload("res://pickups/xp.tscn")
+var heart_pickup := preload("res://pickups/heart.tscn")
 
 func _ready() -> void:
 	hitbox.body_entered.connect(on_hit)
@@ -34,9 +35,9 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 	sprite.flip_h = state.linear_velocity.x > 0
 
 func _exit_tree() -> void:
-	var xp: Node2D = xp_res.instantiate()
-	xp.global_position = global_position
-	$/root/Game.add_child.call_deferred(xp)
+	var pickup: Node2D = (heart_pickup if randi_range(0, 99) == 0 else xp_pickup).instantiate()
+	pickup.global_position = global_position
+	$/root/Game.add_child.call_deferred(pickup)
 	$/root/Game/RunManager.total_kills += 1
 
 func on_hit(other: Node):

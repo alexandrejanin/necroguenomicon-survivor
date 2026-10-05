@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://b83hhem6r820c"]
+
+[ext_resource type="Script" uid="uid://bdycgjomh2m88" path="res://spells/spell.gd" id="1"]
+[ext_resource type="Script" uid="uid://baspo16md2iif" path="res://spells/stat.gd" id="2"]
+[ext_resource type="Script" uid="uid://dch8xqgek1xxr" path="res://spells/projectile_data.gd" id="3"]
+[ext_resource type="Script" uid="uid://fb7s03hplwkj" path="res://spells/patterns/count_pattern.gd" id="4"]
+[ext_resource type="Script" uid="uid://c4ihd1xs4r2kv" path="res://spells/movements/follow_movement.gd" id="5"]
+[ext_resource type="Script" uid="uid://cvjjt74ywt2o1" path="res://spells/effects/effect.gd" id="5_7geax"]
+[ext_resource type="PackedScene" uid="uid://debsqgw5caebk" path="res://spells/sword/sword.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://n38vdr8g2pqe" path="res://sprites/sword.png" id="7"]
+
+[sub_resource type="Resource" id="Resource_fire_rate"]
+script = ExtResource("2")
+name = "Cast rate"
+base = 0.4
+per_level = 0.1
+
+[sub_resource type="Resource" id="Resource_count"]
+script = ExtResource("2")
+name = "Count"
+base = 1.0
+per_level = 1.0
+
+[sub_resource type="Resource" id="Resource_pattern"]
+script = ExtResource("4")
+count = SubResource("Resource_count")
+
+[sub_resource type="Resource" id="Resource_damage"]
+script = ExtResource("2")
+name = "Damage"
+base = 50.0
+per_level = 25.0
+
+[sub_resource type="Resource" id="Resource_movement"]
+script = ExtResource("5")
+swing_angle = 2.0
+
+[sub_resource type="Resource" id="Resource_pierce"]
+script = ExtResource("2")
+name = "Pierce"
+base = -1.0
+
+[sub_resource type="Resource" id="Resource_projectile"]
+script = ExtResource("3")
+damage = SubResource("Resource_damage")
+pierce = SubResource("Resource_pierce")
+lifetime = 0.5
+movement = SubResource("Resource_movement")
+visual = ExtResource("6")
+
+[resource]
+script = ExtResource("1")
+name = "Sword"
+icon = ExtResource("7")
+FIRE_RATE = SubResource("Resource_fire_rate")
+pattern = SubResource("Resource_pattern")
+projectile = SubResource("Resource_projectile")

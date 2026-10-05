@@ -2,9 +2,8 @@ class_name UpgradesManager
 extends Control
 
 var spells: Array[Spell] = [
-	preload("res://spells/fireball/fireball.tres"),
 	preload("res://spells/dagger/dagger.tres"),
-	preload("res://spells/lightning/lightning.tres")
+	preload("res://spells/sword/sword.tres"),
 ]
 
 var option_resource := preload("res://ui/upgrade_option.tscn")
@@ -25,7 +24,8 @@ func _process(_delta: float) -> void:
 func show_upgrades_menu() -> void:
 	get_tree().paused = true
 	
-	for spell in spells:
+	for i in range(3):
+		var spell = spells.pick_random()
 		var new_option: UpgradeOption = option_resource.instantiate()
 		options_parent.add_child(new_option)
 		new_option.custom_minimum_size = Vector2(300, 300)

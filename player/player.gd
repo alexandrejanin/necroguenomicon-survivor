@@ -44,7 +44,7 @@ func _physics_process(_delta: float) -> void:
 		
 
 func xp_threshold() -> int:
-	return 10 * level
+	return 10 * sqrt(level)
 
 func take_damage(damage: int = 1):
 	if hp <= 0 || invincibility_timer < INVINCIBILITY_DURATION:

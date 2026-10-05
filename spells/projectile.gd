@@ -1,35 +1,78 @@
-@abstract
 class_name Projectile
 extends RigidBody2D
 
+# Generic runner: built from a Spell's ProjectileData, behaves per Movement,
+# fires Effect lists on hit/kill/expire. No per-weapon code lives here.
 var player: Player = null
 var spell: Spell = null
+var data: ProjectileData = null
+var age := 0.0
+var pierce_left := 0
+var pierce_infinite := false
+var slot := 0
+var last_hit: Dictionary = {}
 
-@abstract
-func _on_shoot(index: int) -> bool
 
-@abstract
-func on_hit(mob: Mob) -> void
-
-func on_shoot(new_player: Player, new_spell: Spell, index: int) -> bool:
+func setup(new_player: Player, new_spell: Spell, spawn_pos: Vector2, cast_index: int, spawn_index: int, spawn_total: int, mobs: Array, hit: Vector2) -> void:
 	player = new_player
 	spell = new_spell
-	global_position = player.global_position
-	return _on_shoot(index)
+	data = spell.projectile
+	slot = spawn_index
+	var max_pierce := 0
+	if data.pierce != null:
+		max_pierce = int(data.pierce.get_value())
+	pierce_infinite = max_pierce < 0
+	pierce_left = max_pierce
+	data.movement.setup(self, player, spawn_pos, cast_index, spawn_index, spawn_total, mobs, hit)
 
-func shoot_towards(point: Vector2, speed: float) -> void:
-	var direction := global_position.direction_to(point)
-	rotation = direction.angle()
-	linear_velocity = speed * direction
 
-func get_all_mobs() -> Array[Mob]:
-	return player.get_node("%MobSpawner").get_children() as Array[Mob]
+func _process(delta: float) -> void:
+	if data == null:
+		return
+	age += delta
+	# lifetime <= 0 = infinite (Orb).
+	if data.lifetime > 0.0 and age >= data.lifetime:
+		_expire(global_position)
+		return
+	data.movement.travel(self, delta)
 
-func get_nearest_mob() -> Node2D:
-	var nearest_mob: Node2D = null
-	for mob in get_all_mobs():
-		if nearest_mob == null \
-		   || global_position.distance_squared_to(mob.global_position) \
-			< global_position.distance_squared_to(nearest_mob.global_position):
-			nearest_mob = mob
-	return nearest_mob
+
+func on_hit(mob: Mob) -> void:
+	if data == null or mob == null or not is_instance_valid(mob):
+		return
+	var cooldown := data.hit_cooldown
+	var id := mob.get_instance_id()
+	var now := Time.get_ticks_msec()
+	if last_hit.has(id) and float(now - last_hit[id]) / 1000.0 < cooldown:
+		return
+	last_hit[id] = now
+	mob.take_damage(_damage())
+	var anchor := mob.global_position
+	for effect in data.on_hit_effects:
+		effect.trigger(anchor, player, _mobs(), mob, false)
+	if mob.hp <= 0:
+		for effect in data.on_kill_effects:
+			effect.trigger(anchor, player, _mobs(), mob, true)
+	if pierce_infinite:
+		return
+	pierce_left -= 1
+	if pierce_left < 0:
+		_expire(anchor)
+
+
+func _damage() -> int:
+	if data.damage == null:
+		return 1
+	return int(data.damage.get_value())
+
+
+func _expire(anchor: Vector2) -> void:
+	for effect in data.on_expire_effects:
+		effect.trigger(anchor, player, _mobs(), null, false)
+	queue_free()
+
+
+func _mobs() -> Array:
+	if player == null:
+		return []
+	return player.get_node("%MobSpawner").get_children()
