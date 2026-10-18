@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://b71we801baghu"]
 
 [ext_resource type="Texture2D" uid="uid://byen3d68rgv27" path="res://sprites/xp.png" id="1_yn4yt"]
-[ext_resource type="Script" uid="uid://cac3qn5o05fgc" path="res://pickups/xp.gd" id="2_a5h7w"]
+[ext_resource type="Script" path="res://pickups/XpPickup.cs" id="2_a5h7w"]
 
 [node name="Xp" type="Sprite2D" unique_id=2114940371]
 texture_filter = 1
 texture = ExtResource("1_yn4yt")
 script = ExtResource("2_a5h7w")
-metadata/_custom_type_script = "uid://cac3qn5o05fgc"

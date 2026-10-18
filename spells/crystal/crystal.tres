@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://by7wh87606ncr"]
+
+[ext_resource type="Script" uid="uid://cteavtlxqk8la" path="res://spells/Spell.cs" id="1"]
+[ext_resource type="Script" uid="uid://cfi520t7ejfl1" path="res://spells/Stat.cs" id="2"]
+[ext_resource type="Script" uid="uid://t33wg0hxsx3m" path="res://spells/ProjectileData.cs" id="3"]
+[ext_resource type="Script" uid="uid://p14kpfyjy86b" path="res://spells/patterns/CountPattern.cs" id="4"]
+[ext_resource type="Script" uid="uid://b5y3illrij2lq" path="res://spells/movements/AimNearestMovement.cs" id="5"]
+[ext_resource type="Script" uid="uid://dgvghuxl6labk" path="res://spells/effects/Effect.cs" id="5_ifw4q"]
+[ext_resource type="PackedScene" path="res://spells/crystal/crystal.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://dhsl71lv7dwym" path="res://sprites/crystal.png" id="7"]
+[ext_resource type="Script" uid="uid://bb6vgw23fi6xr" path="res://spells/effects/AreaEffect.cs" id="8"]
+[ext_resource type="PackedScene" path="res://spells/crystal/crystal_explosion.tscn" id="9"]
+
+[sub_resource type="Resource" id="Resource_fire_rate"]
+script = ExtResource("2")
+Base = 0.2
+Name = "Cast rate"
+PerLevel = 0.1
+
+[sub_resource type="Resource" id="Resource_count"]
+script = ExtResource("2")
+Base = 1.0
+Name = "Count"
+
+[sub_resource type="Resource" id="Resource_pattern"]
+script = ExtResource("4")
+Count = SubResource("Resource_count")
+
+[sub_resource type="Resource" id="Resource_damage"]
+script = ExtResource("2")
+Base = 100.0
+Name = "Damage"
+PerLevel = 50.0
+
+[sub_resource type="Resource" id="Resource_movement"]
+script = ExtResource("5")
+Speed = 50.0
+
+[sub_resource type="Resource" id="Resource_blast_damage"]
+script = ExtResource("2")
+Base = 50.0
+Name = "Blast"
+PerLevel = 25.0
+
+[sub_resource type="Resource" id="Resource_blast_radius"]
+script = ExtResource("2")
+Base = 40.0
+Name = "Blast radius"
+PerLevel = 10.0
+
+[sub_resource type="Resource" id="Resource_blast"]
+script = ExtResource("8")
+Duration = 0.3
+Damage = SubResource("Resource_blast_damage")
+Radius = SubResource("Resource_blast_radius")
+Visual = ExtResource("9")
+
+[sub_resource type="Resource" id="Resource_pierce"]
+script = ExtResource("2")
+Base = 2.0
+Name = "Pierce"
+PerLevel = 1.0
+
+[sub_resource type="Resource" id="Resource_projectile"]
+script = ExtResource("3")
+Lifetime = 2.0
+Damage = SubResource("Resource_damage")
+Pierce = SubResource("Resource_pierce")
+Movement = SubResource("Resource_movement")
+Visual = ExtResource("6")
+OnExpireEffects = Array[ExtResource("5_ifw4q")]([SubResource("Resource_blast")])
+
+[resource]
+script = ExtResource("1")
+Name = "Crystal"
+Icon = ExtResource("7")
+FireRate = SubResource("Resource_fire_rate")
+Pattern = SubResource("Resource_pattern")
+Projectile = SubResource("Resource_projectile")

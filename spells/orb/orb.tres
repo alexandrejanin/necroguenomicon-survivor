@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://cgtqpac0fe0fh"]
+
+[ext_resource type="Script" uid="uid://cteavtlxqk8la" path="res://spells/Spell.cs" id="1"]
+[ext_resource type="Script" uid="uid://cfi520t7ejfl1" path="res://spells/Stat.cs" id="2"]
+[ext_resource type="Script" uid="uid://t33wg0hxsx3m" path="res://spells/ProjectileData.cs" id="3"]
+[ext_resource type="Script" uid="uid://p14kpfyjy86b" path="res://spells/patterns/CountPattern.cs" id="4"]
+[ext_resource type="Script" uid="uid://clmqw8yxd1kiy" path="res://spells/movements/OrbitMovement.cs" id="5"]
+[ext_resource type="Script" uid="uid://dgvghuxl6labk" path="res://spells/effects/Effect.cs" id="5_86i4d"]
+[ext_resource type="PackedScene" path="res://spells/orb/orb.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://btfcuovch7wk4" path="res://sprites/orb.png" id="7"]
+
+[sub_resource type="Resource" id="Resource_count"]
+script = ExtResource("2")
+Base = 1.0
+Name = "Count"
+PerLevel = 1.0
+
+[sub_resource type="Resource" id="Resource_pattern"]
+script = ExtResource("4")
+Count = SubResource("Resource_count")
+
+[sub_resource type="Resource" id="Resource_damage"]
+script = ExtResource("2")
+Base = 50.0
+Name = "Damage"
+PerLevel = 25.0
+
+[sub_resource type="Resource" id="Resource_spin"]
+script = ExtResource("2")
+Base = 2.6
+Name = "Spin"
+PerLevel = 0.3
+
+[sub_resource type="Resource" id="Resource_radius"]
+script = ExtResource("2")
+Base = 42.0
+Name = "Radius"
+PerLevel = 4.0
+
+[sub_resource type="Resource" id="Resource_movement"]
+script = ExtResource("5")
+Radius = SubResource("Resource_radius")
+AngularSpeed = SubResource("Resource_spin")
+
+[sub_resource type="Resource" id="Resource_pierce"]
+script = ExtResource("2")
+Base = -1.0
+Name = "Pierce"
+
+[sub_resource type="Resource" id="Resource_projectile"]
+script = ExtResource("3")
+HitCooldown = 0.4
+Lifetime = 0.0
+Damage = SubResource("Resource_damage")
+Pierce = SubResource("Resource_pierce")
+Movement = SubResource("Resource_movement")
+Visual = ExtResource("6")
+
+[resource]
+script = ExtResource("1")
+Name = "Orb"
+Icon = ExtResource("7")
+Pattern = SubResource("Resource_pattern")
+Projectile = SubResource("Resource_projectile")

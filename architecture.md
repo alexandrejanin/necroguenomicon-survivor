@@ -40,7 +40,8 @@ A number lives in exactly one place.
   - movement: Movement
   - visual: PackedScene (sprite + shape, tweaked in editor)
   - on_hit_effects, on_kill_effects, on_expire_effects: Array[Effect]
-  - Expiry rule: pierce exhausted OR lifetime elapsed -> free +
+  - Expiry rule: pierce exhausted OR lifetime elapsed OR movement
+	requests expire() (Boomerang returning home) -> free +
 	always fire on_expire_effects.
 
 - Movement: Resource (initial direction + travel)
@@ -61,7 +62,10 @@ A number lives in exactly one place.
 	- FollowMovement (Sword arc, Beam, Tentacle arm): swing_angle: float, fixed
 	(glued to player each frame, faces nearest once on spawn; forward offset
 	lives in the visual scene)
-	- BoomerangMovement: speed: float, fixed; outward_range: Stat (aims random mob on setup)
+	- BoomerangMovement: speed: float, fixed; outward_range: Stat;
+	catch_radius: float, fixed (aims random mob on setup; flies straight
+	out to outward_range, then homes; frees within catch_radius of the
+	player)
 
 - Effect: Resource
   - Trigger call: trigger(anchor_pos, player, mobs, hit_mob, killed).

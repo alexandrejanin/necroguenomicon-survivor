@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://begikofx8b8s8"]
 
 [ext_resource type="Texture2D" uid="uid://ho001ytn0ft1" path="res://sprites/heart.png" id="1_ly6vj"]
-[ext_resource type="Script" uid="uid://dmgpn40dfhh64" path="res://pickups/heart.gd" id="2_ly6vj"]
+[ext_resource type="Script" path="res://pickups/HeartPickup.cs" id="2_ly6vj"]
 
 [node name="Heart" type="Sprite2D" unique_id=179642068]
 texture_filter = 1
 texture = ExtResource("1_ly6vj")
 script = ExtResource("2_ly6vj")
-metadata/_custom_type_script = "uid://dmgpn40dfhh64"

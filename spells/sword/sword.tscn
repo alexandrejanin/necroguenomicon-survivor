@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://debsqgw5caebk"]
 
-[ext_resource type="Script" uid="uid://r25q313ky5qb" path="res://spells/projectile.gd" id="1"]
+[ext_resource type="Script" path="res://spells/Projectile.cs" id="1"]
 [ext_resource type="Texture2D" uid="uid://n38vdr8g2pqe" path="res://sprites/sword.png" id="2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arc"]

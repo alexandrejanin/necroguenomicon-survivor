@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://v2yajp85xqp2"]
 
 [ext_resource type="PackedScene" uid="uid://c8rffi0lu10r0" path="res://ui/upgrades_manager.tscn" id="1_aac20"]
-[ext_resource type="Script" uid="uid://dbgcob1ttcbhu" path="res://ui/defeat_screen.gd" id="2_f5cxw"]
+[ext_resource type="Script" path="res://ui/DefeatScreen.cs" id="2_f5cxw"]
 [ext_resource type="Texture2D" uid="uid://ho001ytn0ft1" path="res://sprites/heart.png" id="2_tf0e0"]
-[ext_resource type="Script" uid="uid://ccxcf16l2fl0j" path="res://ui/hp_bar.gd" id="3_obcwv"]
-[ext_resource type="Script" uid="uid://byblpj6ghnd2t" path="res://ui/xp_bar.gd" id="4_vkava"]
-[ext_resource type="Script" uid="uid://c2umqv644gtfm" path="res://ui/player_info.gd" id="6_obcwv"]
+[ext_resource type="Script" path="res://ui/HpBar.cs" id="3_obcwv"]
+[ext_resource type="Script" path="res://ui/XpBar.cs" id="4_vkava"]
+[ext_resource type="Script" path="res://ui/PlayerInfo.cs" id="6_obcwv"]
 
 [node name="Ui" type="CanvasLayer" unique_id=1649468986]
 process_mode = 3
@@ -20,7 +20,6 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_tf0e0")
 stretch_mode = 1
 script = ExtResource("3_obcwv")
-metadata/_custom_type_script = "uid://ccxcf16l2fl0j"
 
 [node name="DefeatScreen" type="Label" parent="." unique_id=1697578108]
 anchors_preset = 8
@@ -36,7 +35,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Press 'R' to try again!"
 script = ExtResource("2_f5cxw")
-metadata/_custom_type_script = "uid://dbgcob1ttcbhu"
 
 [node name="XpBar" type="ColorRect" parent="." unique_id=925588002]
 anchors_preset = 12
@@ -48,7 +46,6 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.82318634, 0.8225755, 1.1551381e-06, 1)
 script = ExtResource("4_vkava")
-metadata/_custom_type_script = "uid://byblpj6ghnd2t"
 
 [node name="PlayerInfo" type="Label" parent="." unique_id=489656372]
 anchors_preset = 2
@@ -60,4 +57,3 @@ offset_bottom = -25.0
 grow_vertical = 0
 text = "Level 0"
 script = ExtResource("6_obcwv")
-metadata/_custom_type_script = "uid://c2umqv644gtfm"

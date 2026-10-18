@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bshlavlyuwkc3"]
 
-[ext_resource type="Script" uid="uid://b7apu38axsvai" path="res://mobs/mob.gd" id="1_nokgg"]
+[ext_resource type="Script" path="res://mobs/Mob.cs" id="1_nokgg"]
 [ext_resource type="Texture2D" uid="uid://bngwwigltb4ij" path="res://sprites/mob.png" id="2_ubaqv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fc0e3"]
@@ -18,7 +18,6 @@ collision_mask = 5
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_nokgg")
-metadata/_custom_type_script = "uid://b7apu38axsvai"
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=901294275]
 z_index = 1

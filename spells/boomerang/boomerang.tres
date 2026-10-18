@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://b84ejohssnr"]
+
+[ext_resource type="Script" uid="uid://cteavtlxqk8la" path="res://spells/Spell.cs" id="1"]
+[ext_resource type="Script" uid="uid://cfi520t7ejfl1" path="res://spells/Stat.cs" id="2"]
+[ext_resource type="Script" uid="uid://t33wg0hxsx3m" path="res://spells/ProjectileData.cs" id="3"]
+[ext_resource type="Script" uid="uid://p14kpfyjy86b" path="res://spells/patterns/CountPattern.cs" id="4"]
+[ext_resource type="Script" uid="uid://c7bh8e88ll0cc" path="res://spells/movements/BoomerangMovement.cs" id="5"]
+[ext_resource type="Script" uid="uid://dgvghuxl6labk" path="res://spells/effects/Effect.cs" id="5_xcf5c"]
+[ext_resource type="PackedScene" path="res://spells/boomerang/boomerang.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://dkjntfk08wer2" path="res://sprites/boomerang.png" id="7"]
+
+[sub_resource type="Resource" id="Resource_fire_rate"]
+script = ExtResource("2")
+Base = 0.2
+Name = "Cast rate"
+PerLevel = 0.1
+
+[sub_resource type="Resource" id="Resource_count"]
+script = ExtResource("2")
+Base = 1.0
+Name = "Count"
+
+[sub_resource type="Resource" id="Resource_pattern"]
+script = ExtResource("4")
+Count = SubResource("Resource_count")
+
+[sub_resource type="Resource" id="Resource_damage"]
+script = ExtResource("2")
+Base = 50.0
+Name = "Damage"
+PerLevel = 25.0
+
+[sub_resource type="Resource" id="Resource_range"]
+script = ExtResource("2")
+Base = 120.0
+Name = "Range"
+PerLevel = 20.0
+
+[sub_resource type="Resource" id="Resource_movement"]
+script = ExtResource("5")
+OutwardRange = SubResource("Resource_range")
+Speed = 100.0
+
+[sub_resource type="Resource" id="Resource_pierce"]
+script = ExtResource("2")
+Base = -1.0
+Name = "Pierce"
+
+[sub_resource type="Resource" id="Resource_projectile"]
+script = ExtResource("3")
+HitCooldown = 0.3
+Damage = SubResource("Resource_damage")
+Pierce = SubResource("Resource_pierce")
+Movement = SubResource("Resource_movement")
+Visual = ExtResource("6")
+
+[resource]
+script = ExtResource("1")
+Name = "Boomerang"
+Icon = ExtResource("7")
+FireRate = SubResource("Resource_fire_rate")
+Pattern = SubResource("Resource_pattern")
+Projectile = SubResource("Resource_projectile")

@@ -1,0 +1,7 @@
+swing=2.1 lifetime=0.3
+rot after setup=-1.04999995231628
+rot t=0.1 -0.34999996423721
+rot t=0.2 0.35000002384186
+rot t=0.3 1.05000007152557
+expected sweep~2.1
+PROBE_OK

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c8rffi0lu10r0"]
 
-[ext_resource type="Script" uid="uid://d32v42mj6youv" path="res://ui/upgrades_manager.gd" id="1_ol351"]
+[ext_resource type="Script" uid="uid://de5igkyw8sqpa" path="res://ui/UpgradesManager.cs" id="1_ol351"]
 
-[node name="UpgradesManager" type="Control" unique_id=1917442227]
+[node name="UpgradesManager" type="Control" unique_id=82179807]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -11,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ol351")
-metadata/_custom_type_script = "uid://d32v42mj6youv"
+metadata/_custom_type_script = "uid://de5igkyw8sqpa"
 
 [node name="Options" type="HBoxContainer" parent="." unique_id=1946556340]
 layout_mode = 1
@@ -27,3 +27,17 @@ offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+
+[node name="RerollButton" type="Button" parent="." unique_id=1868312880]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Reroll"

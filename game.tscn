@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cu0qwc8blsafn"]
 
 [ext_resource type="Texture2D" uid="uid://bhi4nv7a1bbj3" path="res://sprites/field.png" id="1_yqjtg"]
-[ext_resource type="Script" uid="uid://dyrvmidpxyki4" path="res://mobs/mob_spawner.gd" id="2_lnu2h"]
+[ext_resource type="Script" uid="uid://bdn0oftlqy8ap" path="res://mobs/MobSpawner.cs" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cr6qcg16x42st" path="res://player/player.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://v2yajp85xqp2" path="res://ui/ui.tscn" id="4_lbhrr"]
-[ext_resource type="Script" uid="uid://b2my3nio2bkn3" path="res://run_manager.gd" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://bnb1sigf8f1gr" path="res://RunManager.cs" id="5_7jktm"]
 
 [node name="Game" type="Node2D" unique_id=1255887604]
 y_sort_enabled = true
@@ -42,4 +42,3 @@ unique_name_in_owner = true
 
 [node name="RunManager" type="Node" parent="." unique_id=105894865]
 script = ExtResource("5_7jktm")
-metadata/_custom_type_script = "uid://b2my3nio2bkn3"

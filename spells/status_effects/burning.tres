@@ -1,7 +1,6 @@
 [gd_resource type="Resource" script_class="Burning" format=3 uid="uid://bpmhx1dahtbi5"]
 
-[ext_resource type="Script" uid="uid://cp1nqxnudtnjd" path="res://spells/status_effects/burning.gd" id="1_p5b5h"]
+[ext_resource type="Script" path="res://spells/status_effects/Burning.cs" id="1_p5b5h"]
 
 [resource]
 script = ExtResource("1_p5b5h")
-metadata/_custom_type_script = "uid://cp1nqxnudtnjd"

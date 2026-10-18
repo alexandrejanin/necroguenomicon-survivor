@@ -1,0 +1,54 @@
+[gd_resource type="Resource" script_class="Spell" format=3]
+
+[ext_resource type="Script" path="res://spells/Spell.cs" id="1"]
+[ext_resource type="Script" path="res://spells/Stat.cs" id="2"]
+[ext_resource type="Script" path="res://spells/ProjectileData.cs" id="3"]
+[ext_resource type="Script" path="res://spells/patterns/CountPattern.cs" id="4"]
+[ext_resource type="Script" path="res://spells/movements/FollowMovement.cs" id="5"]
+[ext_resource type="PackedScene" path="res://spells/tentacle_arm/tentacle_arm.tscn" id="6"]
+[ext_resource type="Texture2D" path="res://sprites/tentacle_arm.png" id="7"]
+
+[sub_resource type="Resource" id="Resource_fire_rate"]
+script = ExtResource("2")
+Name = "Cast rate"
+Base = 1.2
+PerLevel = 0.2
+
+[sub_resource type="Resource" id="Resource_count"]
+script = ExtResource("2")
+Name = "Count"
+Base = 1.0
+
+[sub_resource type="Resource" id="Resource_pattern"]
+script = ExtResource("4")
+Count = SubResource("Resource_count")
+
+[sub_resource type="Resource" id="Resource_damage"]
+script = ExtResource("2")
+Name = "Damage"
+Base = 50.0
+PerLevel = 25.0
+
+[sub_resource type="Resource" id="Resource_movement"]
+script = ExtResource("5")
+
+[sub_resource type="Resource" id="Resource_pierce"]
+script = ExtResource("2")
+Name = "Pierce"
+Base = -1.0
+
+[sub_resource type="Resource" id="Resource_projectile"]
+script = ExtResource("3")
+Damage = SubResource("Resource_damage")
+Pierce = SubResource("Resource_pierce")
+Lifetime = 0.4
+Movement = SubResource("Resource_movement")
+Visual = ExtResource("6")
+
+[resource]
+script = ExtResource("1")
+Name = "Tentacle arm"
+Icon = ExtResource("7")
+FireRate = SubResource("Resource_fire_rate")
+Pattern = SubResource("Resource_pattern")
+Projectile = SubResource("Resource_projectile")
